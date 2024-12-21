@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6a5acd, #3b5f87);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        .tablink {
+            background-color: #3b5f87;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-size: 1.1em;
+            border-radius: 30px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .tablink:hover, .tablink.active {
+            background-color: #4b76a2;
+            transform: scale(1.05);
+        }
+
+        .language-switcher {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .language-switcher a {
+            margin: 0 15px;
+            font-size: 1.2em;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .language-switcher a:hover {
+            color: #6a5acd;
+        }
+
+        .portfolio {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .category {
+            width: 100%;
+            margin: 20px 0;
+            text-align: center;
+            display: none;
+        }
+
+        .portfolio-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .portfolio-item {
+            background-color: #fff;
+            width: 250px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .portfolio-item h3 {
+            margin-top: 15px;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .portfolio {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .category {
+                width: 100%;
+            }
+
+            .portfolio-item {
+                width: 80%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="en-content">My Portfolio</h1>
+        <h1 class="hu-content" style="display:none;">Portfólióm</h1>
+        <nav>
+            <ul>
+                <li><button class="tablink" onclick="openCategory(event, 'websites')"><span class="en-content">Websites</span><span class="hu-content" style="display:none;">Weboldalak</span></button></li>
+                <li><button class="tablink" onclick="openCategory(event, 'animations')"><span class="en-content">Animations</span><span class="hu-content" style="display:none;">Animációk</span></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="language-switcher">
+        <a href="#" id="en-btn" class="lang-btn">EN</a>
+        <a href="#" id="hu-btn" class="lang-btn">HU</a>
+    </div>
+
+    <section class="portfolio">
+        <!-- Websites Category -->
+        <div id="websites" class="category">
+            <h2 class="en-content">Websites</h2>
+            <h2 class="hu-content" style="display:none;">Weboldalak</h2>
+            <div class="portfolio-links">
+                <a class="portfolio-item" href="Book Recommendation.html">
+                    <h3 class="en-content">Website 1</h3>
+                    <h3 class="hu-content" style="display:none;">Weboldal 1</h3>
+                </a>
+                <a class="portfolio-item" href="marketing.html">
+                    <h3 class="en-content">Website 2</h3>
+                    <h3 class="hu-content" style="display:none;">Weboldal 2</h3>
+                </a>
+            </div>
+        </div>
+
+        <!-- Animations Category -->
+        <div id="animations" class="category" style="display:none;">
+            <h2 class="en-content">Animations</h2>
+            <h2 class="hu-content" style="display:none;">Animációk</h2>
+            <div class="portfolio-links">
+                <a class="portfolio-item" href="animation tutoral.html">
+                    <h3 class="en-content">Animation 1</h3>
+                    <h3 class="hu-content" style="display:none;">Animáció 1</h3>
+                </a>
+                <a class="portfolio-item" href="loading animation.html">
+                    <h3 class="en-content">Animation 2</h3>
+                    <h3 class="hu-content" style="display:none;">Animáció 2</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Language Switcher Functionality
+        const enBtn = document.getElementById('en-btn');
+        const huBtn = document.getElementById('hu-btn');
+        const allEnContent = document.querySelectorAll('.en-content');
+        const allHuContent = document.querySelectorAll('.hu-content');
+
+        enBtn.addEventListener('click', function() {
+            allEnContent.forEach(el => el.style.display = 'block');
+            allHuContent.forEach(el => el.style.display = 'none');
+        });
+
+        huBtn.addEventListener('click', function() {
+            allEnContent.forEach(el => el.style.display = 'none');
+            allHuContent.forEach(el => el.style.display = 'block');
+        });
+
+        // Category Switcher Functionality
+        function openCategory(evt, categoryName) {
+            let i, categoryContent, tablinks;
+            categoryContent = document.getElementsByClassName("category");
+            for (i = 0; i < categoryContent.length; i++) {
+                categoryContent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(categoryName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Set default category to "websites"
+        document.getElementsByClassName("tablink")[0].click();
+    </script>
+</body>
+</html>

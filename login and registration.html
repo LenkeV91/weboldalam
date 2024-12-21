@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            border-color: #feb47b;
+            outline: none;
+        }
+
+        .button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff7e5f;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #feb47b;
+            transform: scale(1.05);
+        }
+
+        .form-toggle {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .form-toggle a {
+            color: #ff7e5f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+        }
+
+        .lang-btn {
+            text-decoration: none;
+            font-size: 18px;
+            color: #fff;
+            margin: 0 5px;
+            font-weight: bold;
+        }
+
+        .form-container form {
+            display: none;
+        }
+
+        .form-container .login-form {
+            display: block;
+        }
+
+        .form-container .register-form {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="language-switcher">
+        <a href="#" id="en-btn" class="lang-btn">EN</a> | 
+        <a href="#" id="hu-btn" class="lang-btn">HU</a>
+    </div>
+
+    <div class="form-container">
+        <!-- Login Form -->
+        <div class="login-form en-content">
+            <h2>Login</h2>
+            <input type="text" id="username" class="input-field" placeholder="Username" required>
+            <input type="password" id="password" class="input-field" placeholder="Password" required>
+            <button class="button" onclick="login()">Login</button>
+            <div class="form-toggle">
+                <p>Don't have an account? <a href="#" onclick="toggleForms()">Register</a></p>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+        <div class="register-form hu-content">
+            <h2>Regisztráció</h2>
+            <input type="text" id="reg-username" class="input-field" placeholder="Felhasználónév" required>
+            <input type="email" id="reg-email" class="input-field" placeholder="E-mail" required>
+            <input type="password" id="reg-password" class="input-field" placeholder="Jelszó" required>
+            <button class="button" onclick="register()">Regisztráció</button>
+            <div class="form-toggle">
+                <p>Már van fiókod? <a href="#" onclick="toggleForms()">Bejelentkezés</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Nyelvváltás
+        document.getElementById('en-btn').addEventListener('click', () => {
+            document.querySelector('.hu-content').style.display = 'none';
+            document.querySelector('.en-content').style.display = 'block';
+        });
+
+        document.getElementById('hu-btn').addEventListener('click', () => {
+            document.querySelector('.en-content').style.display = 'none';
+            document.querySelector('.hu-content').style.display = 'block';
+        });
+
+        // Űrlapok közötti váltás
+        function toggleForms() {
+            const loginForm = document.querySelector('.login-form');
+            const registerForm = document.querySelector('.register-form');
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+            }
+        }
+
+        // Bejelentkezés funkció
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password) {
+                alert("Logged in successfully!");
+            } else {
+                alert("Please enter both username and password.");
+            }
+        }
+
+        // Regisztráció funkció
+        function register() {
+            const regUsername = document.getElementById('reg-username').value;
+            const regEmail = document.getElementById('reg-email').value;
+            const regPassword = document.getElementById('reg-password').value;
+
+            if (regUsername && regEmail && regPassword) {
+                alert("Registration successful!");
+            } else {
+                alert("Please fill in all fields.");
+            }
+        }
+    </script>
+
+</body>
+</html>

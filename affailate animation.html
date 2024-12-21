@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Animation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .affiliate-banner {
+            width: 300px;
+            height: 150px;
+            background-color: #ff9900;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            animation: slide 5s infinite alternate;
+        }
+
+        .affiliate-link {
+            text-decoration: none;
+        }
+
+        .banner-content p {
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(100px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="affiliate-banner">
+            <a href="https://www.example-affiliate-link.com" target="_blank" class="affiliate-link">
+                <div class="banner-content">
+                    <p>Click here to get amazing discounts!</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript can be used to trigger events, like tracking clicks for affiliate
+        document.querySelector('.affiliate-link').addEventListener('click', function () {
+            console.log("Affiliate link clicked!");
+            // Here you can add your tracking code to monitor clicks
+        });
+    </script>
+</body>
+</html>

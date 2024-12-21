@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Recommended Book List</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #6c5ce7;
+      color: #fff;
+      padding: 20px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+    }
+
+    .language-switch {
+      margin-top: 15px;
+    }
+
+    .language-switch button {
+      background-color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .language-switch button:hover {
+      background-color: #6c5ce7;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .book-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 1200px;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .book {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .book:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .book h3 {
+      color: #6c5ce7;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .book p {
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      background-color: #6c5ce7;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      width: 100%;
+      margin-top: 20px;
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    footer blockquote {
+      font-style: italic;
+      color: #e0e0e0;
+      margin: 0;
+    }
+
+    footer p {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 id="page-title">Recommended Book List</h1>
+    <div class="language-switch">
+      <button onclick="switchLanguage('en')">English</button>
+      <button onclick="switchLanguage('hu')">Magyar</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="book-list">
+      <div class="book" data-en-title="Think and Grow Rich" data-hu-title="Gondolkodj és gazdagodj">
+        <h3 class="book-title"></h3>
+        <p class="book-description"></p>
+      </div>
+      <div class="book" data-en-title="Rich Dad Poor Dad" data-hu-title="Gazdag papa, szegény papa">
+        <h3 class="book-title"></h3>
+        <p class="book-description"></p>
+      </div>
+      <div class="book" data-en-title="The Psychology of Money" data-hu-title="A pénz pszichológiája">
+        <h3 class="book-title"></h3>
+        <p class="book-description"></p>
+      </div>
+      <div class="book" data-en-title="Growth Hacker" data-hu-title="Növekedési hacker">
+        <h3 class="book-title"></h3>
+        <p class="book-description"></p>
+      </div>
+      <div class="book" data-en-title="Atomic Habits" data-hu-title="Atom szokások">
+        <h3 class="book-title"></h3>
+        <p class="book-description"></p>
+      </div>
+      <div class="book" data-en-title="Mindset" data-hu-title="Elmeállapot">
+        <h3 class="book-title"></h3>
+        <p class="book-description"></p>
+      </div>
+      <div class="book" data-en-title="The Lean Startup" data-hu-title="Lean Startup">
+        <h3 class="book-title"></h3>
+        <p class="book-description"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <blockquote>"The secret to success is action and continuous learning." - Napoleon Hill</blockquote>
+    <p>&copy; 2024 Book Portfolio. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const books = [
+      {
+        en: { title: "Think and Grow Rich", description: "Napoleon Hill's classic on achieving wealth and success." },
+        hu: { title: "Gondolkodj és gazdagodj", description: "Napoleon Hill klasszikus műve a gazdagság és siker eléréséről." }
+      },
+      {
+        en: { title: "Rich Dad Poor Dad", description: "Robert Kiyosaki's famous book on financial education." },
+        hu: { title: "Gazdag papa, szegény papa", description: "Robert Kiyosaki híres könyve a pénzügyi oktatásról." }
+      },
+      {
+        en: { title: "The Psychology of Money", description: "By Morgan Housel: A book on the psychology of financial decisions." },
+        hu: { title: "A pénz pszichológiája", description: "Morgan Housel könyve a pénzügyi döntések pszichológiájáról." }
+      },
+      {
+        en: { title: "Growth Hacker", description: "A book about growth hacking strategies and lead generation." },
+        hu: { title: "Növekedési hacker", description: "Egy könyv növekedési hacker stratégiákról és ügyfélszerzésről." }
+      },
+      {
+        en: { title: "Atomic Habits", description: "By James Clear: A guide to forming small habits for big results." },
+        hu: { title: "Atom szokások", description: "James Clear könyve a kicsi szokások erejéről és a nagy eredmények eléréséről." }
+      },
+      {
+        en: { title: "Mindset", description: "By Carol S. Dweck: Understanding the role of mindset in success." },
+        hu: { title: "Elmeállapot", description: "Carol S. Dweck könyve a siker eléréséhez vezető elmeállapotokról." }
+      },
+      {
+        en: { title: "The Lean Startup", description: "By Eric Ries: A book on building successful startups with minimal resources." },
+        hu: { title: "Lean Startup", description: "Eric Ries könyve a sikeres startupok építéséről minimális erőforrással." }
+      }
+    ];
+
+    function switchLanguage(language) {
+      const title = language === 'en' ? 'Recommended Book List' : 'Könyvajánlók';
+      document.getElementById('page-title').textContent = title;
+
+      const bookElements = document.querySelectorAll('.book');
+      books.forEach((book, index) => {
+        const bookElement = bookElements[index];
+        bookElement.querySelector('.book-title').textContent = book[language].title;
+        bookElement.querySelector('.book-description').textContent = book[language].description;
+      });
+    }
+
+    // Default language
+    switchLanguage('en');
+  </script>
+
+</body>
+</html>

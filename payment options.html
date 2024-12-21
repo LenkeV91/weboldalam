@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+    <link rel="stylesheet" href="payment.css">
+    <script src="payment.js" defer></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .payment-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .payment-box {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+            transform: translateY(100%);
+            animation: slideIn 0.6s ease-out forwards;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .payment-method input {
+            margin-right: 10px;
+        }
+
+        .payment-info {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <select id="language-select" class="language-selector">
+        <option value="en">English</option>
+        <option value="hu" selected>Magyar</option>
+    </select>
+
+    <div class="payment-container">
+        <div class="payment-box">
+            <h2 data-en="Payment Options" data-hu="Fizetési lehetőségek">Payment Options</h2>
+            <form id="paymentForm">
+                <!-- Kártyás fizetési lehetőség -->
+                <div class="payment-method">
+                    <input type="radio" id="card" name="paymentMethod" value="card" checked>
+                    <label for="card" data-en="Credit/Debit Card" data-hu="Hitel-/Bankkártya">Credit/Debit Card</label>
+                </div>
+
+                <!-- Kártya információk -->
+                <div id="card-info" class="payment-info" style="display: block;">
+                    <div class="input-group">
+                        <label for="card-number" data-en="Card Number" data-hu="Kártyaszám">Card Number</label>
+                        <input type="text" id="card-number" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="expiry-date" data-en="Expiry Date" data-hu="Lejárati dátum">Expiry Date</label>
+                        <input type="text" id="expiry-date" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="cvv" data-en="CVV" data-hu="CVV">CVV</label>
+                        <input type="text" id="cvv" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" data-en="Submit" data-hu="Elküld">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const paymentForm = document.getElementById('paymentForm');
+            const cardRadio = document.getElementById('card');
+            const cardInfo = document.getElementById('card-info');
+            const languageSelect = document.getElementById('language-select');
+
+            // Kártyás fizetési információk megjelenítése
+            cardRadio.addEventListener('change', function() {
+                if (cardRadio.checked) {
+                    cardInfo.style.display = 'block';
+                }
+            });
+
+            // Form submission logic
+            paymentForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                // Kártyás fizetés adatainak lekérése
+                const cardNumber = document.getElementById('card-number').value;
+                const expiryDate = document.getElementById('expiry-date').value;
+                const cvv = document.getElementById('cvv').value;
+
+                // Itt kellene a kártyás fizetést feldolgozni (biztonságos módon)
+                alert(`Payment via Card\nCard Number: ${cardNumber}\nExpiry Date: ${expiryDate}\nCVV: ${cvv}`);
+            });
+
+            // Nyelvválasztás
+            function switchLanguage(lang) {
+                const elements = document.querySelectorAll('[data-en]');
+                elements.forEach(element => {
+                    element.textContent = element.getAttribute(`data-${lang}`);
+                });
+            }
+
+            // Nyelv kiválasztás eseménykezelő
+            languageSelect.addEventListener('change', function() {
+                switchLanguage(languageSelect.value);
+            });
+
+            // Alapértelmezett nyelv magyar
+            switchLanguage('hu');
+        });
+    </script>
+</body>
+</html>

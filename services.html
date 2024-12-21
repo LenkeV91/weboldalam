@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="services.css">
+    <style>
+        /* Alap beállítások */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    min-height: 100vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(120deg, #ff9a76, #ffc371);
+    animation: gradient-animation 6s infinite alternate;
+}
+
+/* Animált háttér */
+@keyframes gradient-animation {
+    0% {
+        background: linear-gradient(120deg, #ff9a76, #ffc371);
+    }
+    100% {
+        background: linear-gradient(120deg, #ff6a00, #ffd700);
+    }
+}
+
+/* Nyelvváltó */
+.language-switcher {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.lang-btn {
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    margin: 0 5px;
+    font-weight: bold;
+}
+
+/* Szolgáltatások tartalma */
+.services-container {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.services-list {
+    list-style: none;
+    padding: 0;
+}
+
+.services-list li {
+    font-size: 20px;
+    padding: 10px 0;
+    margin: 5px 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.services-list li:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.4);
+}
+
+    </style>
+    <title>Services</title>
+</head>
+<body>
+    <div class="language-switcher">
+        <a href="#" id="en-btn" class="lang-btn">EN</a> | 
+        <a href="#" id="hu-btn" class="lang-btn">HU</a>
+    </div>
+
+    <div class="services-container">
+        <!-- English Content -->
+        <div class="content en-content">
+            <h1>Services</h1>
+            <ul class="services-list">
+                <li>Development of animated websites</li>
+                <li>SEO copywriting</li>
+                <li>Affiliate Marketing</li>
+            </ul>
+        </div>
+
+        <!-- Hungarian Content -->
+        <div class="content hu-content" style="display: none;">
+            <h1>Szolgáltatások</h1>
+            <ul class="services-list">
+                <li>Animált weboldalak fejlesztése</li>
+                <li>SEO szövegírás</li>
+                <li>Affailate marketing</li>
+
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Nyelvváltás funkciók
+        document.getElementById('en-btn').addEventListener('click', () => {
+            document.querySelector('.hu-content').style.display = 'none';
+            document.querySelector('.en-content').style.display = 'block';
+        });
+
+        document.getElementById('hu-btn').addEventListener('click', () => {
+            document.querySelector('.en-content').style.display = 'none';
+            document.querySelector('.hu-content').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #84fab0, #8fd3f4);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .language-switcher {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+
+        .lang-btn {
+            text-decoration: none;
+            font-size: 18px;
+            color: #333;
+            margin: 0 5px;
+            font-weight: bold;
+        }
+
+        .active-lang {
+            color: #007bff;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        form input, form textarea, form button {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        form button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <title>Contact Form</title>
+</head>
+<body>
+    <div class="language-switcher">
+        <a href="#" id="en-btn" class="lang-btn active-lang">EN</a> | 
+        <a href="#" id="hu-btn" class="lang-btn">HU</a>
+    </div>
+
+    <div class="form-container">
+        <!-- English Content -->
+        <div class="form-content en-content">
+            <h1>Contact Me</h1>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" placeholder="Enter your message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+
+        <!-- Hungarian Content -->
+        <div class="form-content hu-content" style="display: none;">
+            <h1>Kapcsolatfelvétel</h1>
+            <form>
+                <label for="name">Név:</label>
+                <input type="text" id="name" placeholder="Írd be a neved" required>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" placeholder="Írd be az e-mail címed" required>
+                <label for="message">Üzenet:</label>
+                <textarea id="message" placeholder="Írd ide az üzeneted" required></textarea>
+                <button type="submit">Küldés</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Function to switch between languages
+        document.getElementById('en-btn').addEventListener('click', () => {
+            switchLanguage('en');
+        });
+
+        document.getElementById('hu-btn').addEventListener('click', () => {
+            switchLanguage('hu');
+        });
+
+        // Function to switch the content based on selected language
+        function switchLanguage(lang) {
+            // Hide all language contents
+            const contents = document.querySelectorAll('.form-content');
+            contents.forEach(content => content.style.display = 'none');
+
+            // Show the selected language content
+            document.querySelector(`.${lang}-content`).style.display = 'block';
+
+            // Update the active language button
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(button => button.classList.remove('active-lang'));
+            document.getElementById(`${lang}-btn`).classList.add('active-lang');
+        }
+    </script>
+</body>
+</html>
