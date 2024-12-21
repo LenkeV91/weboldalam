@@ -1,14 +1,14 @@
 # Vállalkozásom Weboldala. 
 # Rövid Leírás
 Ez a weboldal a [Vállalkozásom](https://vstyledesign.com) hivatalos oldala.
+
+
 ## Rólam
 
-Üdvözlöm! Varró Lenke vagyok, egyéni kisvállalkozó. Célom, hogy segítsek más vállalkozásoknak kiemelkedő online jelenlétet teremteni.
-# Funkciók és Szolgáltatások
-- Szolgáltatásaink bemutatása
-- Termékeink megtekintése és vásárlása
-- Kapcsolatfelvételi űrlap
-- Ügyfél vélemények
+Üdvözlöm! [A te neved], egyéni kisvállalkozó vagyok, és szenvedélyem, hogy segítsek más vállalkozásoknak kiemelkedő online jelenlétet teremteni. Szolgáltatásaim közé tartozik a weboldal tervezés, digitális marketing, és SEO, amelyek mind azt a célt szolgálják, hogy ügyfeleim elérjék célközönségüket és növeljék online láthatóságukat. Elkötelezett vagyok abban, hogy egyedi és modern weboldalakat hozzak létre.
+
+Célom, hogy minden ügyféllel szoros együttműködésben dolgozzam, megértve az igényeiket és céljaikat, hogy egy valóban személyre szabott szolgáltatást nyújthassak. Hiszem, hogy minden vállalkozásnak megvan a maga története, és én itt vagyok, hogy segítsek ezt a történetet elmondani az online világban.
+
 
 
 
